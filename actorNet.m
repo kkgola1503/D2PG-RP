@@ -2,9 +2,7 @@ function actorNet = actorNet()
 % A deep actor network for DDPG with multiple layers
 %
 %   actorNet = ACTORNET() returns a layer graph suitable for use in
-%   deep reinforcement learning with a deterministic policy gradient (DDPG)
-%   agent. The network consists of several hidden layers, dropout regularization,
-%   and an output layer bounded by tanh to constrain the action space between
+
 %   [-1, 1]. This architecture is designed to handle continuous action spaces.
 %
 %   Example:
