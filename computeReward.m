@@ -54,30 +54,4 @@ function reward = computeReward(currentNode, selectedNeighbor, nodes, baseStatio
         % Penalize invalid forwarding
         reward = reward - a4;
     end
-
-
-    % Additional characteristics
-    % Depth information 
-    depthImpact = 1 / (1 + depthInfo(selectedNeighbor)); % Normalize depth
-    reward = reward + depthWeight * depthImpact;
-
-    % Node Mobility Factor 
-    nmfImpact = nodes.mobility(selectedNeighbor); % Higher value means better stability
-    reward = reward + nmfWeight * nmfImpact;
-
-    % Node Reputation Score 
-    nrsImpact = nodes.reputation(selectedNeighbor);
-    reward = reward + nrsWeight * nrsImpact;
-
-    % Acoustic Interference Level 
-    ailImpact = 1 / (1 + nodes.ail(selectedNeighbor)); % Normalize AIL
-    reward = reward + ailWeight * ailImpact;
-
-    % Consider propagation delay
-    propagationDelay = norm(nodes.position(currentNode, :) - nodes.position(selectedNeighbor, :)) / speedOfSound; % Speed of sound in water
-    reward = reward - propagationDelay ; 
-
-    % Residual Energy Impact 
-    residualEnergyImpact = nodes.energy(currentNode) / nodes.energy(selectedNeighbor); % Normalize energy 
-    reward = reward + energyWeight * residualEnergyImpact;
-end
+  end
